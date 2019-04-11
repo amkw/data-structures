@@ -66,4 +66,5 @@ var Node = function(value) {
  *  addToTail = O(1)
  *  removeHead = O(1)
  *  contains = O(n)
+ *
  */
