@@ -17,7 +17,6 @@ var Queue = function() {
     // decrement keyNum
     // shift all values up one numeric key
     // return removed value
-    console.log(storage);
     var removedValue = storage[0];
     var tempStorage = [];
     delete(storage[0]);

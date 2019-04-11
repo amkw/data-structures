@@ -1,24 +1,34 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
+  var obj = {};
+
+  obj.storage = {};
+  obj.counter = 0;
+
+  _.extend(obj, stackMethods);
+
+  return obj;
 };
 
 var stackMethods = {};
-// var Stack = function() {
-//   var someInstance = {};
 
-//   // Use an object with numeric keys to store values
-//   var storage = {};
+stackMethods.push = function(value) {
+  this.storage[this.counter] = value;
+  this.counter++;
+};
 
-//   // Implement the methods below
-//   someInstance.push = function(value) {
-//   };
+stackMethods.pop = function() {
+  this.counter--;
+  var removedValue = this.storage[this.counter];
+  delete(this.storage[this.counter]);
+  if (this.counter < 0) {
+    this.counter = 0;
+  }
 
-//   someInstance.pop = function() {
-//   };
+  return removedValue;
+}
 
-//   someInstance.size = function() {
-//   };
-
-//   return someInstance;
-// };
+stackMethods.size = function() {
+  return this.counter;
+}
