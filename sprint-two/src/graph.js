@@ -2,6 +2,9 @@
 
 // Instantiate a new graph
 var Graph = function() {
+  var graph = Object.create(Graph.prototype);
+
+  return graph;
 };
 
 // Add a node to the graph, passing in the node's value.
