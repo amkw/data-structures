@@ -8,13 +8,13 @@ var LinkedList = function() {
     // create a new node with value of passed in value
 
     var newNode = Node(value);
-
     if(list.tail !== null){
       var oldNode = list.tail;
       oldNode.next = newNode;
     } else {
       list.head = newNode;
     }
+
     list.tail = newNode;
   };
 
@@ -28,7 +28,6 @@ var LinkedList = function() {
 
     var searchNext = function(target, node){
       var isFound = false;
-
       if(node === null){
         return false;
       }

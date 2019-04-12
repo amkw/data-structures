@@ -38,6 +38,8 @@ describe('tree', function() {
     tree.children[0].addChild(7);
     tree.children[1].addChild(8);
     expect(tree.contains(7)).to.equal(true);
+    console.log(tree.contains(8));
+    console.log(tree);
     expect(tree.contains(8)).to.equal(true);
   });
 
