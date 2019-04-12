@@ -13,19 +13,18 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    // remove storage[0]
-    // decrement keyNum
-    // shift all values up one numeric key
-    // return removed value
     var removedValue = storage[0];
     var tempStorage = [];
     delete(storage[0]);
     keyNum--;
     tempStorage = Object.values(storage);
+
+    // shift all values up one numeric key
     for (var i = 0; i < tempStorage.length; i++) {
       storage[i] = tempStorage[i];
     }
     delete(storage[tempStorage.length]);
+
     return removedValue;
   };
 
@@ -35,8 +34,3 @@ var Queue = function() {
 
   return someInstance;
 };
-//  [value]
-//{
-//  0: value
-//  1: value
-//}
