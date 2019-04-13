@@ -4,6 +4,8 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
+  list.counter = 0;
+
   list.addToTail = function(value) {
     // create a new node with value of passed in value
 
@@ -14,13 +16,14 @@ var LinkedList = function() {
     } else {
       list.head = newNode;
     }
-
     list.tail = newNode;
+    list.counter++;
   };
 
   list.removeHead = function() {
     var removedVal = list.head.value;
     list.head = list.head.next;
+    list.counter--;
     return removedVal;
   };
 
