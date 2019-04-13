@@ -3,6 +3,7 @@
 var HashTable = function () {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
+  this._count = 0;
 };
 
 HashTable.prototype.insert = function (k, v) {
@@ -15,10 +16,12 @@ HashTable.prototype.insert = function (k, v) {
       } else {
         valAtIndex.push([k, v]);
         this._storage.set(index, valAtIndex);
+        this._count++;
       }
     }
   } else {
     this._storage.set(index, [[k, v]]);
+    this._count++;
   }
 };
 
@@ -43,6 +46,7 @@ HashTable.prototype.remove = function (k) {
     }
   }
   this._storage.each(deleteKey);
+  this._count--;
 };
 
 

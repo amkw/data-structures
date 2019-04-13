@@ -47,6 +47,17 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should properly count the tuples in hash table', function () {
+    var v1 = 'val1';
+    var v2 = 'val2';
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v1);
+    hashTable.insert(v2, v2);
+    hashTable.remove('v1');
+    console.log(hashTable);
+    expect(hashTable._count).to.equal(1);
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {
