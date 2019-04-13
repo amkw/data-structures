@@ -26,6 +26,12 @@ describe('tree', function() {
     expect(tree.contains(6)).to.equal(false);
   });
 
+  it('should allow tree to have children with same value', function () {
+    tree.addChild(5);
+    tree.addChild(5);
+    expect(tree.children.length).to.equal(2);
+  });
+
   it('should be able to add children to a tree\'s child', function() {
     tree.addChild(5);
     tree.children[0].addChild(6);
