@@ -54,7 +54,6 @@ describe('hashTable', function() {
     hashTable.insert(v2, v1);
     hashTable.insert(v2, v2);
     hashTable.remove('v1');
-    console.log(hashTable);
     expect(hashTable._count).to.equal(1);
   });
 

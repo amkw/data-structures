@@ -68,4 +68,16 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should traverse through nodes with edges correctly', function() {
+    graph.addNode(0);
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(0, 1);
+    graph.addEdge(1, 3);
+    graph.addEdge(2, 1);
+    expect(graph.storage[0][1][2][3]).to.equal(undefined);
+    expect(graph.storage[0][1][3]).to.equal(graph.storage[3]);
+  });
 });
