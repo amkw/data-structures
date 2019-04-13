@@ -10,8 +10,8 @@ var BinarySearchTree = function(value) {
 
 BinarySearchTree.prototype.insert = function(val) {
   // Recursively find where to insert tree
-  var addTree = function (tree, val) {
-  if (!tree.contains(val)) {
+  var addTree = function (tree) {
+    if (!tree.contains(val)) {
       // make new tree in .left or .right
       if (val > tree.value && tree.right === null) {
         tree.right = BinarySearchTree(val);
@@ -25,34 +25,40 @@ BinarySearchTree.prototype.insert = function(val) {
     }
   };
 
-  addTree(this, val);
-
+  addTree(this);
 };
 
 BinarySearchTree.prototype.contains = function(val) {
   var wasFound = false;
 
   // Recursively search .left and .right for val
-  var searchTree = function (tree, val) {
+  // var searchTree = function (tree, val) {
 
-    if (tree !== null && tree.value !== val) {
-      if (val > tree.value) { //going right
-        if (searchTree(tree.right, val)) {
-          wasFound = true;
-        }
-      } else if (val < tree.value) { //going left
-        if (searchTree(tree.left, val)) {
-          wasFound = true;
-        }
-      }
-    } else if (tree === null) {
-      wasFound = false;
-    } else {
+  //   if (tree !== null && tree.value !== val) {
+  //     if (val > tree.value) { //going right
+  //       if (searchTree(tree.right, val)) {
+  //         wasFound = true;
+  //       }
+  //     } else if (val < tree.value) { //going left
+  //       if (searchTree(tree.left, val)) {
+  //         wasFound = true;
+  //       }
+  //     }
+  //   } else if (tree === null) {
+  //     wasFound = false;
+  //   } else {
+  //     wasFound = true;
+  //   }
+  // }
+  // searchTree(this, val);
+
+  var searchTree = function(valueAtTree) {
+    if (valueAtTree === val) {
       wasFound = true;
     }
-  }
-  searchTree(this, val);
 
+  }
+  this.depthFirstLog(searchTree);
   return wasFound;
 };
 
@@ -76,6 +82,6 @@ BinarySearchTree.prototype.depthFirstLog = function (cb) {
  * Complexity: What is the time complexity of the above functions?
  *
  * insert() = O(log n)
- * contains() = O(log n)
+ * contains() = O(log n) with original function body, O(n) using dephthFirstLog()
  * eachTree() = O(n)
  */
