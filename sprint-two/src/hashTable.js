@@ -11,7 +11,7 @@ HashTable.prototype.insert = function (k, v) {
   if (Array.isArray(valAtIndex)) {
     for (var i = 0; i < valAtIndex.length; i++) {
       if (valAtIndex[i].includes(k)) {
-        valAtIndex[i][1] = v;
+        valAtIndex[i][1] = v; // overwrite value if key exists
       } else {
         valAtIndex.push([k, v]);
         this._storage.set(index, valAtIndex);
